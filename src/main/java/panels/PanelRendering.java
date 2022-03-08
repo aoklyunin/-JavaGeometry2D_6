@@ -107,6 +107,7 @@ public class PanelRendering extends GridPanel {
     public static void loadFromFile(String path) {
         // создаём загрузчик JSON
         ObjectMapper objectMapper = new ObjectMapper();
+        task.cancel();
         try {
             // считываем систему координат
             task = objectMapper.readValue(new File(path), Task.class);
