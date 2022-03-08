@@ -153,7 +153,10 @@ public class PanelControl extends GridPanel {
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 7, 0, 5, 3, 1, "Загрузить",
                 true, true);
-        load.setOnClick(PanelRendering::load);
+        load.setOnClick(() -> {
+            PanelRendering.load();
+            cancelTask();
+        });
         buttons.add(load);
 
         Button save = new Button(
